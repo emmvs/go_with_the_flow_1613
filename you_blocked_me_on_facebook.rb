@@ -1,12 +1,53 @@
 # frozen_string_literal: true
 
-# Blocks
+# Someone else built this
+require 'date'
+
+# Something we built (another file)
+require_relative 'iterating_through_life'
+
+### Blocks
+
+# Everything between do & end is a block of code
+# Everything between { & } is a block of code
 
 # do |sth|
 #  "#{sth} is done"
 # end
 
-# Yield I
+# { |sth| puts "#{sth} is done" }
+
+
+# STUDENTS.each_with_index do |student, index|
+#  puts "#{index + 1} Hi, #{student}, please do your flashcards!!!"
+# end
+
+# STUDENTS.each   { |student| any_code_with(student) }
+# STUDENTS.map    { |student| transform(student) }
+# STUDENTS.select { |student| condition_on(student) }
+# STUDENTS.count { |student| condition_on(student) }
+
+# selected_students = STUDENTS.select do |student|
+#   student.start_with?("M")
+# end
+
+
+# Blocks can either
+# - be taken by methods (.each, .map, etc.)
+# [1, 2, 3].each do |num|
+#  puts num * 2
+# end
+
+# - or can be yielded to/passed by as part of the method call (method())
+# def method_name
+#  yield if block_given?
+# end
+
+# method_name do
+#  puts 'This ☝🏻 block is passed to the method call.'
+# end
+
+### Yield I
 
 def greet()
   puts '>>> Before the block'
@@ -45,6 +86,8 @@ like(42) do
   puts "Notification: User liked your post!"
 end
 
+# Yield IV
+
 # 5.times do |i|
 #  puts "Running time #{i}"
 # end
@@ -58,3 +101,5 @@ end
 repeat(23) do |i|
   puts "✉️  Emma: Hi, there Student no. #{i}! Please, do your flashcards"
 end
+
+# HAVE FUN YIELDING!!!!!
